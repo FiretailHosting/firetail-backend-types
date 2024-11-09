@@ -2,12 +2,13 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "dist",
-    "module": "CommonJS",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "target": "ESNext",
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "target": "ES6",
     "strict": true
   },
   "include": ["src"],
