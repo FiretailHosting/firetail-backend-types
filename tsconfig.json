@@ -2,12 +2,14 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "dist",
-    "emitDeclarationOnly": true,
-    "outDir": "dist",
-    "moduleResolution": "node",
-    "target": "ES6",
     "module": "CommonJS",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES6",
     "strict": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

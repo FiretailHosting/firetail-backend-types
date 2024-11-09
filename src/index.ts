@@ -92,7 +92,7 @@ export type PocketBaseError = {
 export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'users'): RecordService<UsersResponse>
 	collection(idOrName: 'posts'): RecordService<PostsResponse>
-	collection(idOrName: 'websites'): RecordService<WebsiteRecord>
+	collection(idOrName: 'websites'): RecordService<WebsiteResponse>
 	collection(idOrName: 'analyticsData'): RecordService<AnalyticsDataResponse>
 }
 export const POCKETBASE_API_URL = "https://befthcc2024.firetailhosting.com";
