@@ -6,12 +6,8 @@ export enum Collections {
 	Posts = "posts",
 	Websites = "websites",
 	AnalyticsData = "analyticsData",
-}
-export type CollectionRecords = {
-	users: UsersRecord
-	posts: PostsRecord
-	websites: WebsiteRecord
-	analyticsData: AnalyticsDataRecord
+	Images = "images",
+	Modules = "modules",
 }
 
 export type IsoDateString = string
@@ -78,6 +74,20 @@ export type AnalyticsDataRecord = {
 }
 export type AnalyticsDataResponse<Texpand = unknown> = Required<AnalyticsDataRecord> & BaseSystemFields<Texpand>
 
+export type ImageRecord = {
+	file: string;
+	uploader: string;
+}
+
+export type ImageResponse<Texpand = unknown> = Required<ImageRecord> & BaseSystemFields<Texpand>
+
+export type ModuleRecord = {
+	name: string;
+	description: string;
+}
+
+export type ModuleResponse<Texpand = unknown> = Required<ModuleRecord> & BaseSystemFields<Texpand>
+
 export type PocketBaseError = {
     url: string;
     status: number;
@@ -89,11 +99,23 @@ export type PocketBaseError = {
     isAbort: boolean;
     orignalError: any;
 }
+
+export type CollectionRecords = {
+	users: UsersRecord
+	posts: PostsRecord
+	websites: WebsiteRecord
+	analyticsData: AnalyticsDataRecord
+	images: ImageRecord,
+	modules: ModuleRecord
+}
+
 export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'users'): RecordService<UsersResponse>
 	collection(idOrName: 'posts'): RecordService<PostsResponse>
 	collection(idOrName: 'websites'): RecordService<WebsiteResponse>
 	collection(idOrName: 'analyticsData'): RecordService<AnalyticsDataResponse>
+	collection(idOrName: 'images'): RecordService<ImageResponse>
+	collection(idOrName: 'modules'): RecordService<ModuleResponse>
 }
 
 let pb: TypedPocketBase | null = null
