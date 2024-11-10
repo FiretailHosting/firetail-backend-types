@@ -103,7 +103,7 @@ export function initializePocketBase(apiUrl: string): void {
         throw new Error("API URL must be provided to initialize PocketBase.")
     }
     if (pb !== null) {
-        throw new Error("PocketBase has already been initialized.")
+        return;
     }
     pb = new PocketBase(apiUrl) as TypedPocketBase
 }
