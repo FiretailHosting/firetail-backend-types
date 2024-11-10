@@ -95,5 +95,22 @@ export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'websites'): RecordService<WebsiteResponse>
 	collection(idOrName: 'analyticsData'): RecordService<AnalyticsDataResponse>
 }
-export const POCKETBASE_API_URL = "https://befthcc2024.firetailhosting.com";
-export const pb: TypedPocketBase = new PocketBase(POCKETBASE_API_URL)
+
+let pb: TypedPocketBase | null = null
+
+export function initializePocketBase(apiUrl: string): void {
+    if (!apiUrl) {
+        throw new Error("API URL must be provided to initialize PocketBase.")
+    }
+    if (pb !== null) {
+        throw new Error("PocketBase has already been initialized.")
+    }
+    pb = new PocketBase(apiUrl) as TypedPocketBase
+}
+
+export function usePocketBase(): TypedPocketBase {
+	if (pb === null) {
+		throw new Error("PocketBase has not been initialized. Call initializePocketBase() first.")
+	}
+	return pb
+}
