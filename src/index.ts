@@ -77,6 +77,7 @@ export type AnalyticsDataResponse<Texpand = unknown> = Required<AnalyticsDataRec
 export type ImageRecord = {
 	file: string;
 	uploader: string;
+	deleted: boolean;
 }
 
 export type ImageResponse<Texpand = unknown> = Required<ImageRecord> & BaseSystemFields<Texpand>
