@@ -54,7 +54,7 @@ export type PostsRecord = {
 export type PostsResponse<Texpand = unknown> = Required<PostsRecord> & BaseSystemFields<Texpand>
 
 
-export type WebsiteRecord = {
+export type WebsitesRecord = {
 	zoneId: string;
 	name: string;
 	owner: string;
@@ -63,7 +63,7 @@ export type WebsiteRecord = {
 	projectName: string;
 	rebuildCount: number;
 }
-export type WebsiteResponse<Texpand = unknown> = Required<WebsiteRecord> & BaseSystemFields<Texpand>
+export type WebsitesResponse<Texpand = unknown> = Required<WebsitesRecord> & BaseSystemFields<Texpand>
 
 export type AnalyticsDataRecord = {
 	website: string;
@@ -81,14 +81,14 @@ export type ImageRecord = {
 	deleted: boolean;
 }
 
-export type ImageResponse<Texpand = unknown> = Required<ImageRecord> & BaseSystemFields<Texpand>
+export type ImagesResponse<Texpand = unknown> = Required<ImageRecord> & BaseSystemFields<Texpand>
 
 export type ModuleRecord = {
 	name: string;
 	description: string;
 }
 
-export type ModuleResponse<Texpand = unknown> = Required<ModuleRecord> & BaseSystemFields<Texpand>
+export type ModulesResponse<Texpand = unknown> = Required<ModuleRecord> & BaseSystemFields<Texpand>
 
 export type PocketBaseError = {
     url: string;
@@ -105,7 +105,7 @@ export type PocketBaseError = {
 export type CollectionRecords = {
 	users: UsersRecord
 	posts: PostsRecord
-	websites: WebsiteRecord
+	websites: WebsitesRecord
 	analyticsData: AnalyticsDataRecord
 	images: ImageRecord,
 	modules: ModuleRecord
@@ -114,10 +114,10 @@ export type CollectionRecords = {
 export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'users'): RecordService<UsersResponse>
 	collection(idOrName: 'posts'): RecordService<PostsResponse>
-	collection(idOrName: 'websites'): RecordService<WebsiteResponse>
+	collection(idOrName: 'websites'): RecordService<WebsitesResponse>
 	collection(idOrName: 'analyticsData'): RecordService<AnalyticsDataResponse>
-	collection(idOrName: 'images'): RecordService<ImageResponse>
-	collection(idOrName: 'modules'): RecordService<ModuleResponse>
+	collection(idOrName: 'images'): RecordService<ImagesResponse>
+	collection(idOrName: 'modules'): RecordService<ModulesResponse>
 }
 
 let pb: TypedPocketBase | null = null
