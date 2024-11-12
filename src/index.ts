@@ -43,6 +43,7 @@ export type UsersResponse<Texpand = unknown> = Required<UsersRecord> & AuthSyste
 export type PostsRecord = {
 	title: string;
 	image: string;
+	imageAlt: string;
 	pubDate?: string;
 	description: string;
 	postContent: string;
