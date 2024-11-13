@@ -51,6 +51,7 @@ export type PostsRecord = {
 	draft: boolean;
 	visible: boolean;
 	deleted: boolean;
+	tags: string[];
 }
 export type PostsResponse<Texpand = unknown> = Required<PostsRecord> & BaseSystemFields<Texpand>
 
@@ -98,6 +99,12 @@ export type WebsiteModulesRecord = {
 }
 
 export type WebsiteModulesResponse<Texpand = unknown> = Required<WebsiteModulesRecord> & BaseSystemFields<Texpand>
+
+export type PostTagsResponse = {
+	name: string;
+	website: string;
+	color: string;
+}
 
 export type PocketBaseError = {
     url: string;
