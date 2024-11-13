@@ -103,7 +103,6 @@ export type WebsiteModulesResponse<Texpand = unknown> = Required<WebsiteModulesR
 
 export type PostTagsRecord = {
 	name: string;
-	color: string;
 }
 
 export type PostTagsResponse<Texpand = unknown> = Required<PostTagsRecord> & BaseSystemFields<Texpand>
