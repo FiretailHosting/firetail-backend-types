@@ -8,7 +8,8 @@ export enum Collections {
 	AnalyticsData = "analyticsData",
 	Images = "images",
 	Modules = "modules",
-	WebsiteModules = "websiteModules"
+	WebsiteModules = "websiteModules",
+	PostTags = "postTags"
 }
 
 export type IsoDateString = string
@@ -100,11 +101,12 @@ export type WebsiteModulesRecord = {
 
 export type WebsiteModulesResponse<Texpand = unknown> = Required<WebsiteModulesRecord> & BaseSystemFields<Texpand>
 
-export type PostTagsResponse = {
+export type PostTagsRecord = {
 	name: string;
-	website: string;
 	color: string;
 }
+
+export type PostTagsResponse<Texpand = unknown> = Required<PostTagsRecord> & BaseSystemFields<Texpand>
 
 export type PocketBaseError = {
     url: string;
@@ -126,6 +128,7 @@ export type CollectionRecords = {
 	images: ImagesRecord
 	modules: ModulesRecord
 	websiteModules: WebsiteModulesRecord
+	postTags: PostTagsRecord
 }
 
 export type TypedPocketBase = PocketBase & {
@@ -136,6 +139,7 @@ export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'images'): RecordService<ImagesResponse>
 	collection(idOrName: 'modules'): RecordService<ModulesResponse>
 	collection(idOrName: 'websiteModules'): RecordService<WebsiteModulesResponse>
+	collection(idOrName: 'postTags'): RecordService<PostTagsResponse>
 }
 
 let pb: TypedPocketBase | null = null
