@@ -9,7 +9,8 @@ export enum Collections {
 	Images = "images",
 	Modules = "modules",
 	WebsiteModules = "websiteModules",
-	PostTags = "postTags"
+	PostTags = "postTags",
+	SubscriptionTiers = "subscriptionTiers"
 }
 
 export type IsoDateString = string
@@ -34,10 +35,11 @@ export type AuthSystemFields<T = never> = {
 
 export type UsersRecord = {
 	avatar?: string;
-	firstName: string;
-	lastName: string;
-	selectedSite: string;
-	buildsPerDay: number;
+	firstName?: string;
+	lastName?: string;
+	selectedSite?: string;
+	buildsPerDay?: number;
+	subscriptionTier?: string;
 }
 export type UsersResponse<Texpand = unknown> = Required<UsersRecord> & AuthSystemFields<Texpand>
 
@@ -89,7 +91,10 @@ export type ImagesResponse<Texpand = unknown> = Required<ImagesRecord> & BaseSys
 export type ModulesRecord = {
 	name: string;
 	description: string;
-	navbarName: string
+	navbarName: string;
+	price: number;
+	onSale: boolean;
+	onSalePrice: number;
 }
 
 export type ModulesResponse<Texpand = unknown> = Required<ModulesRecord> & BaseSystemFields<Texpand>
@@ -106,6 +111,14 @@ export type PostTagsRecord = {
 }
 
 export type PostTagsResponse<Texpand = unknown> = Required<PostTagsRecord> & BaseSystemFields<Texpand>
+
+export type SubscriptionTierRecord = {
+	name: string;
+	price: number;
+	description: string;
+}
+
+export type SubscriptionTierResponse<Texpand = unknown> = Required<SubscriptionTierRecord> & BaseSystemFields<Texpand>
 
 export type PocketBaseError = {
     url: string;
@@ -128,6 +141,7 @@ export type CollectionRecords = {
 	modules: ModulesRecord
 	websiteModules: WebsiteModulesRecord
 	postTags: PostTagsRecord
+	subscriptionTiers: SubscriptionTierRecord
 }
 
 export type TypedPocketBase = PocketBase & {
@@ -139,6 +153,7 @@ export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'modules'): RecordService<ModulesResponse>
 	collection(idOrName: 'websiteModules'): RecordService<WebsiteModulesResponse>
 	collection(idOrName: 'postTags'): RecordService<PostTagsResponse>
+	collection(idOrName: 'subscriptionTiers'): RecordService<SubscriptionTierResponse>
 }
 
 let pb: TypedPocketBase | null = null
