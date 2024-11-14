@@ -40,6 +40,7 @@ export type UsersRecord = {
 	selectedSite?: string;
 	buildsPerDay?: number;
 	subscriptionTier?: string;
+	supportTickets: number;
 }
 export type UsersResponse<Texpand = unknown> = Required<UsersRecord> & AuthSystemFields<Texpand>
 
@@ -119,6 +120,8 @@ export type SubscriptionTierRecord = {
 	name: string;
 	price: number;
 	description: string;
+	supportTicketsPerMonth: number;
+	websiteBuildsPerDay: number;
 }
 
 export type SubscriptionTierResponse<Texpand = unknown> = Required<SubscriptionTierRecord> & BaseSystemFields<Texpand>
