@@ -93,8 +93,10 @@ export type ModulesRecord = {
 	description: string;
 	navbarName: string;
 	price: number;
+	paymentLink: string;
 	onSale: boolean;
 	onSalePrice: number;
+	onSalePaymentLink: string;
 }
 
 export type ModulesResponse<Texpand = unknown> = Required<ModulesRecord> & BaseSystemFields<Texpand>
