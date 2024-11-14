@@ -38,7 +38,6 @@ export type UsersRecord = {
 	firstName?: string;
 	lastName?: string;
 	selectedSite?: string;
-	buildsPerDay?: number;
 	subscriptionTier?: string;
 	supportTickets: number;
 }
