@@ -97,6 +97,7 @@ export type ModulesRecord = {
 	onSale: boolean;
 	onSalePrice: number;
 	onSalePaymentLink: string;
+	image: string;
 }
 
 export type ModulesResponse<Texpand = unknown> = Required<ModulesRecord> & BaseSystemFields<Texpand>
