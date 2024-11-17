@@ -56,6 +56,7 @@ export type PostsRecord = {
 	visible: boolean;
 	deleted: boolean;
 	tags: string[];
+	category: string;
 }
 export type PostsResponse<Texpand = unknown> = Required<PostsRecord> & BaseSystemFields<Texpand>
 
