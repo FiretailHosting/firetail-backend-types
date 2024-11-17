@@ -67,6 +67,7 @@ export type WebsitesRecord = {
 	dirty: boolean;
 	projectName: string;
 	rebuildCount: number;
+	url: string;
 }
 export type WebsitesResponse<Texpand = unknown> = Required<WebsitesRecord> & BaseSystemFields<Texpand>
 
